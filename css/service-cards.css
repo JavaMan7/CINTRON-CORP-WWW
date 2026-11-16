@@ -10,8 +10,10 @@
 .services-band::before { content: ''; z-index: -1; position: absolute; left: 0; right: 0; top: 50%; bottom: 0; background: var(--color-tint); }
 .services-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; align-items: stretch; }
 
-/* One card (the whole card is a link). */
-.service-card { display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; min-height: 260px; aspect-ratio: 1.09; padding: clamp(20px, 3vw, 48px); text-decoration: none; color: var(--white); position: relative; isolation: isolate; }
+/* One card (the whole card is a link). Content is left-aligned; the side
+   padding equals the page gutter, so the first card's text lines up with the
+   logo and headings above it. */
+.service-card { display: flex; flex-direction: column; align-items: flex-start; text-align: left; justify-content: center; min-height: 260px; aspect-ratio: 1.09; padding: clamp(20px, 3vw, 48px) var(--page-gutter); text-decoration: none; color: var(--white); position: relative; isolation: isolate; }
 
 /* Card colours. The names match the "color" values in js/services.js. */
 .service-card[data-color='classic-red'] { background: var(--color-accent); }
@@ -25,18 +27,18 @@
 .service-icon { width: clamp(54px, 5.1vw, 79px); height: clamp(54px, 5.1vw, 79px); margin-bottom: 21px; }
 .service-icon svg { width: 100%; height: 100%; }
 .service-card h2 { font-size: clamp(21px, 1.8vw, 30px); line-height: 1.18; letter-spacing: -.03em; margin: 0 0 19px; font-weight: 800; }
-.service-card p { margin: 0 auto; font-size: clamp(15px, 1.11vw, 18px); line-height: 1.55; max-width: 300px; }
+.service-card p { margin: 0; font-size: clamp(15px, 1.11vw, 18px); line-height: 1.55; max-width: 300px; }
 
 /* Medium screens: smaller text and padding. */
 @media (max-width: 920px) {
-  .service-card { padding: 25px 16px; }
+  .service-card { padding-block: 25px; }
   .service-card h2 { font-size: clamp(18px, 2.3vw, 23px); }
 }
 /* Phones: cards stack on top of each other, full width. */
 @media (max-width: 680px) {
   .services-band::before { top: 0; }
   .services-card-grid { grid-template-columns: 1fr; }
-  .service-card { min-height: 225px; aspect-ratio: auto; padding: 28px 24px; }
+  .service-card { min-height: 225px; aspect-ratio: auto; padding-block: 28px; }
   .service-icon { width: 55px; height: 55px; margin-bottom: 12px; }
   .service-card h2 { font-size: 25px; margin-bottom: 10px; }
   .service-card p { font-size: 16px; }

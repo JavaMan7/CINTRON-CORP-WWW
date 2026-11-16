@@ -1,0 +1,27 @@
+/* ==========================================================================
+   home.css — the "Who We Are" section at the top of the homepage
+   (index.html only). Image on the left, heading and text on the right.
+   ========================================================================== */
+.intro-section { background: var(--color-bg); }
+.intro-inner { min-height: 460px; display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); align-items: center; gap: clamp(35px, 5.1vw, 82px); padding-block: clamp(45px, 5.4vw, 90px); }
+.intro-image-wrap { overflow: hidden; }
+/* Photos are cropped to fill the frame... */
+.intro-image { width: 100%; aspect-ratio: 1.42; object-fit: cover; }
+/* ...but SVG artwork (like the flag) is always shown whole, never cropped. */
+.intro-image[src$=".svg"] { object-fit: contain; }
+.intro-copy { padding-right: 3%; }
+.intro-copy h1 { margin: 0 0 17px; font-size: clamp(46px, 4.4vw, 75px); font-weight: 800; line-height: 1.06; }
+.intro-copy p { font-size: clamp(16px, 1.16vw, 20px); line-height: 1.75; max-width: 560px; color: var(--color-text); }
+
+/* Medium screens: slightly tighter. */
+@media (max-width: 920px) {
+  .intro-inner { gap: 30px; min-height: 385px; }
+  .intro-copy h1 { font-size: clamp(40px, 5vw, 56px); }
+}
+/* Phones: image on top, text underneath. */
+@media (max-width: 680px) {
+  .intro-inner { display: flex; flex-direction: column; align-items: stretch; padding-top: 22px; padding-bottom: 55px; }
+  .intro-image { aspect-ratio: 1.6; }
+  .intro-copy { padding-right: 0; }
+  .intro-copy h1 { font-size: 48px; }
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<!--
+  services.html — SERVICES PAGE
+  Big "Services" heading, then the three service cards.
+
+  Shared parts are filled in by JavaScript:
+    - header and footer ...... js/site.js
+    - the service cards ...... js/services.js
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Cintron Corp</title>
+  <meta name="description" content="Our automation, software and mechanical design capabilities.">
+  <meta name="theme-color" content="#A50034">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="css/colors.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/service-cards.css">
+</head>
+
+<body data-page="services">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="site-header" data-site-header></header>
+
+  <main id="main-content">
+
+    <!-- ===== PAGE HEADING ===== -->
+    <section class="page-hero site-container">
+      <span class="accent-rule" aria-hidden="true"></span><p class="eyebrow">What we do</p>
+      <h1>Services</h1>
+      <!-- Intro sentence under the heading. -->
+      <p>We specialize in</p>
+    </section>
+
+    <!-- ===== SERVICE CARDS =====
+         Filled in by js/services.js. Edit the card text there, not here. -->
+    <section class="services-band" aria-label="What we do">
+      <div class="services-card-grid" data-service-cards></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" data-site-footer></footer>
+
+  <script src="js/site.js"></script>
+  <script src="js/services.js"></script>
+</body>
+</html>

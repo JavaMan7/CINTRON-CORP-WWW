@@ -1,0 +1,38 @@
+/* ==========================================================================
+   colors.css — EVERY colour on the site is defined here, once.
+
+   The other CSS files never use hex codes directly; they use the "role"
+   variables below (for example var(--color-primary)). Change a value here and
+   every page updates.
+
+   Readability (WCAG contrast): white on bright red 5.3:1, white on crimson
+   7.9:1, white on classic red 6.6:1, #222 on pink 10.5:1, #555 on pink 4.9:1.
+   Bright red text on pink is only 3.5:1, so use --color-secondary for text
+   on pink.
+   ========================================================================== */
+:root {
+  /* ---- Palette: the actual brand colours ---- */
+  --crimson: #a50034;      /* Deep crimson */
+  --red: #d80621;          /* Bright red */
+  --classic-red: #b22234;  /* Classic red */
+  --pink: #f7c6c7;         /* Soft pink */
+  --white: #ffffff;
+  --ink: #222222;          /* Dark text on white/pink */
+
+  /* ---- Roles: what each colour is used for ---- */
+  --color-primary: var(--red);            /* Buttons, links, red accent lines */
+  --color-secondary: var(--crimson);      /* Header, footer, hover states */
+  --color-accent: var(--classic-red);     /* Accents (first service card) */
+  --color-tint: var(--pink);              /* Pink band behind service cards, nav underline */
+  --color-bg: var(--white);               /* Page background */
+  --color-text: var(--ink);               /* Body text on white/pink */
+  --text-muted: #555555;                  /* Secondary text on white/pink */
+  --hairline: rgba(34,34,34,.15);         /* Thin lines on light backgrounds */
+  --on-dark-muted: rgba(255,255,255,.85); /* Secondary text on the reds */
+  --hairline-on-dark: rgba(255,255,255,.25);
+
+  /* ---- Layout sizes (not colours, but shared everywhere) ---- */
+  --page-gutter: clamp(24px, 4.5vw, 76px); /* Space at the left/right page edges */
+  --site-max: 1480px;                      /* Maximum content width */
+  --header-height: 82px;                   /* Desktop header height (74px on mobile, see global.css) */
+}

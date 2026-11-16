@@ -1,0 +1,62 @@
+<!doctype html>
+<!--
+  index.html — HOMEPAGE
+  Sections: "Who We Are" (flag + text), then the three service cards.
+
+  Shared parts are filled in by JavaScript:
+    - header and footer ...... js/site.js
+    - the service cards ...... js/services.js
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tab title and the description search engines show. -->
+  <title>Cintron Corp</title>
+  <meta name="description" content="Practical solutions in controls, software, electronics and mechanical design.">
+  <meta name="theme-color" content="#A50034">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="css/colors.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/service-cards.css">
+</head>
+
+<!-- data-page="home" underlines "Home" in the nav (see js/site.js). -->
+<body data-page="home">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="site-header" data-site-header></header>
+
+  <main id="main-content">
+
+    <!-- ===== WHO WE ARE ===== -->
+    <section class="intro-section" aria-labelledby="intro-heading">
+      <div class="intro-inner site-container">
+        <!-- Left: image. To use a photo instead, change src (e.g. images/team-photo.jpg) and alt. -->
+        <div class="intro-image-wrap">
+          <img class="intro-image" src="images/canada-flag.svg" alt="Flag of Canada" width="920" height="640" fetchpriority="high">
+        </div>
+        <!-- Right: heading and text. -->
+        <div class="intro-copy">
+          <span class="accent-rule" aria-hidden="true"></span>
+          <h1 id="intro-heading">Who We Are</h1>
+          <p>CINTRON CORP. was founded by Red River Polytechnic Graduates in Electronic and Mechanical Engineering Technology. We supply Mechanical, Electrical, Instrumentation and other Industrial products, and we deliver the right products, on time and on budget. Everything we do is guided by our principles the 3A's: Affordability, Accountability and Agility.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICE CARDS =====
+         Filled in by js/services.js. Edit the card text there, not here. -->
+    <section class="services-band" aria-label="What we do">
+      <div class="services-card-grid" data-service-cards></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" data-site-footer></footer>
+
+  <script src="js/site.js"></script>
+  <script src="js/services.js"></script>
+</body>
+</html>

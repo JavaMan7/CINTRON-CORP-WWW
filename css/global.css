@@ -1,0 +1,134 @@
+/* ==========================================================================
+   global.css — styles shared by every page.
+
+   Sections in this file:
+     1. Reset and basics
+     2. Small shared pieces (red accent line, eyebrow label, links)
+     3. Header and navigation   (HTML is built by js/site.js)
+     4. Footer                  (HTML is built by js/site.js)
+     5. Page headings           (Services, Contact, 404 and service pages)
+     6. Text content ("prose")  (service page bodies, contact page)
+     7. Contact page
+     8. Service detail pages
+     9. Mobile / small screens
+   ========================================================================== */
+
+/* ---------- 1. Reset and basics ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
+body { margin: 0; min-width: 320px; background: var(--color-bg); color: var(--color-text); font-family: Inter, "Segoe UI", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+button, input, textarea { font: inherit; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 5px; }
+::selection { background: var(--color-primary); color: var(--white); }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { letter-spacing: -.04em; }
+
+/* Centred content column used by almost every section. */
+.site-container { width: min(calc(100% - var(--page-gutter) * 2), var(--site-max)); margin-inline: auto; }
+
+/* Hidden visually but still read by screen readers. */
+.sr-only { border: 0; clip: rect(0,0,0,0); clip-path: inset(50%); height: 1px; width: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; }
+
+/* "Skip to content" link: off-screen until a keyboard user tabs to it. */
+.skip-link { position: fixed; top: -80px; left: 20px; z-index: 100; padding: 12px 16px; background: var(--color-primary); color: var(--white); font-weight: 700; }
+.skip-link:focus { top: 12px; }
+
+/* ---------- 2. Small shared pieces ---------- */
+/* The short thick red line above headings. */
+.accent-rule { display: block; width: 56px; height: 6px; background: var(--color-primary); margin-bottom: 25px; }
+/* Small red uppercase label above a heading, e.g. "WHAT WE DO". */
+.eyebrow { margin-bottom: 14px; color: var(--color-primary); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .17em; }
+/* Plain red underlined link, e.g. "Return home →" on the 404 page. */
+.text-link { color: var(--color-primary); text-decoration-thickness: 1px; text-underline-offset: 5px; }
+
+/* ---------- 3. Header and navigation ---------- */
+/* Solid crimson bar that stays at the top while scrolling. */
+.site-header { position: sticky; top: 0; z-index: 50; height: var(--header-height); background: var(--color-secondary); color: var(--white); }
+/* Three columns: logo (left) | nav links (centre) | empty (right). */
+.header-inner { width: min(calc(100% - var(--page-gutter) * 2), var(--site-max)); height: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; }
+.brand-link { justify-self: start; display: inline-flex; align-items: center; justify-content: center; height: 58px; text-decoration: none; }
+/* White Cintron logo (images/logo-white.svg). Height is fixed; width follows the logo's shape. */
+.brand-logo { width: auto; height: 46px; }
+.primary-nav { height: 100%; display: flex; align-items: center; gap: clamp(21px, 2.8vw, 52px); }
+.nav-link { height: 100%; display: inline-flex; align-items: center; padding: 4px 0 0; position: relative; font-size: clamp(13px, .93vw, 15px); font-weight: 600; text-decoration: none; white-space: nowrap; }
+/* Pink underline: grows in on hover and stays under the current page's link. */
+.nav-link::after { content: ''; position: absolute; bottom: 18px; height: 3px; left: 0; right: 0; background: var(--color-tint); scale: 0 1; transform-origin: center; transition: scale .24s ease; }
+.nav-link:hover::after, .nav-link.is-active::after { scale: 1 1; }
+/* Hamburger button: hidden on desktop, shown on small screens (section 9). */
+.menu-toggle { display: none; }
+
+/* ---------- 4. Footer ---------- */
+.site-footer { background: var(--color-secondary); color: var(--white); padding: 50px 0 36px; border-top: 1px solid var(--hairline-on-dark); }
+.footer-inner { display: flex; justify-content: space-between; align-items: start; gap: 32px; }
+.footer-inner strong { font-size: 15px; letter-spacing: -.01em; }
+.footer-inner p { font-size: 13px; color: var(--on-dark-muted); margin: 8px 0 0; }
+.footer-right { display: flex; flex-direction: column; text-align: right; gap: 8px; font-size: 13px; color: var(--on-dark-muted); }
+
+/* ---------- 5. Page headings ---------- */
+/* Big heading area at the top of the Services, Contact and 404 pages. */
+.page-hero { padding-top: clamp(82px, 10vw, 150px); padding-bottom: 100px; }
+.page-hero h1, .detail-hero h1 { font-size: clamp(54px, 6vw, 96px); line-height: 1.02; margin: 0 0 24px; max-width: 1100px; }
+.page-hero > p:not(.eyebrow) { max-width: 720px; color: var(--text-muted); font-size: clamp(18px, 1.55vw, 23px); line-height: 1.55; }
+
+/* ---------- 6. Text content ("prose") ---------- */
+/* Paragraphs, headings and lists written directly in the page HTML. */
+.prose { max-width: 950px; font-size: 17px; line-height: 1.75; color: var(--text-muted); }
+.prose h2, .prose h3 { color: var(--color-text); line-height: 1.2; margin-top: 40px; margin-bottom: 14px; }
+.prose h2 { font-size: clamp(25px, 3vw, 36px); }
+.prose p { margin-bottom: 20px; }
+.prose li { margin-block: 6px; }
+.prose a { color: var(--color-primary); }
+.prose strong { color: var(--color-text); }
+
+/* ---------- 7. Contact page ---------- */
+.contact-content { padding-bottom: 180px; }
+.contact-location { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--color-primary); margin-top: 34px; }
+/* Red "Email us →" button. */
+.contact-button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; background: var(--color-primary); color: var(--white); text-decoration: none; border: 0; border-radius: 9px; padding: 13px 20px; font-size: 14px; font-weight: 800; transition: translate .2s ease, background .2s ease; }
+.contact-button:hover { translate: 0 -2px; background: var(--color-secondary); }
+.contact-button--large { margin: 10px 0 25px; }
+.prose a.contact-button { color: var(--white); } /* keep button text white inside .prose */
+
+/* ---------- 8. Service detail pages ---------- */
+.detail-hero { padding-top: 80px; padding-bottom: 44px; }
+.detail-hero .accent-rule { margin-top: 80px; }
+/* The grey one-sentence summary under the service title. */
+.detail-lede { font-size: clamp(18px, 2vw, 27px); line-height: 1.45; color: var(--text-muted); max-width: 790px; margin-bottom: 18px; }
+/* "← All services" link. */
+.back-link { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 14px; }
+.back-link:hover { color: var(--color-primary); }
+.service-detail-body { padding-block: 0 45px; }
+
+/* ---------- 9. Mobile / small screens ---------- */
+@media (max-width: 780px) {
+  :root { --header-height: 74px; }
+  /* Header becomes: logo | hamburger button. */
+  .header-inner { grid-template-columns: 1fr auto auto; gap: 14px; }
+  .brand-logo { height: 38px; }
+  .menu-toggle { display: flex; flex-direction: column; gap: 6px; background: none; color: var(--white); border: 0; padding: 12px; order: 2; cursor: pointer; }
+  .menu-toggle span { display: block; width: 25px; height: 2px; background: currentColor; }
+  /* Nav links drop down below the header; js/site.js adds .is-open when the button is pressed. */
+  .primary-nav { position: absolute; top: 100%; left: 0; right: 0; height: auto; padding: 20px var(--page-gutter) 26px; display: none; flex-direction: column; align-items: flex-start; gap: 0; background: var(--color-secondary); border-top: 1px solid var(--hairline-on-dark); border-bottom: 1px solid var(--hairline-on-dark); }
+  .primary-nav.is-open { display: flex; }
+  .nav-link { padding: 15px 0; font-size: 16px; width: 100%; height: auto; }
+  .nav-link::after { bottom: 7px; right: auto; width: 50px; }
+  .contact-button { padding: 11px 13px; font-size: 13px; gap: 6px; }
+  .page-hero { padding-block: 75px 66px; }
+  .footer-inner { flex-direction: column; }
+  .footer-right { text-align: left; }
+}
+@media (max-width: 480px) {
+  .detail-hero { padding-top: 50px; }
+  .detail-hero .accent-rule { margin-top: 60px; }
+}
+@media (max-width: 420px) {
+  .contact-button { padding: 10px; }
+  .brand-logo { height: 32px; }
+}
+/* Visitors who ask their device for less motion get no hover animations. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

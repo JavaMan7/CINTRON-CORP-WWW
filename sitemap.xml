@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml - list of the site's pages for Google Search Console.
+  Add a <url> block when you add a page; remove it when you delete one.
+  Update <lastmod> (YYYY-MM-DD) when a page's content changes.
+  404.html is left out on purpose (it isn't a real page).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://cintron.ca/</loc>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://cintron.ca/services.html</loc>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://cintron.ca/services-supply-procurement.html</loc>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://cintron.ca/services-equipment-installation.html</loc>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://cintron.ca/services-automation.html</loc>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://cintron.ca/contact.html</loc>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+</urlset>
